@@ -18,10 +18,10 @@ class TestHttpServer(object):
         self.bad_request = []
         self.native_bad_request = []
 
-        self.pre_handle = []
+        self.pre_handle = None
 
     def add_handle(self, handle):
-        self.pre_handle.append(handle)
+        self.pre_handle = handle
 
     def _connect_server(self, server_host, port, data):
         conn = socket.socket(socket.AF_INET)
@@ -42,9 +42,9 @@ class TestHttpServer(object):
             if is_pass:
                 continue
 
-            if len(self.pre_handle) > 0:
-                for i in self.pre_handle:
-                    raw_request = i(request)  # 前置处理，目前处理cookie
+            if self.pre_handle:
+                raw_request = self.pre_handle(
+                    request).raw_data  # 前置处理，目前处理cookie
 
             for i in range(5):
                 if is_first:
@@ -137,7 +137,7 @@ def gen_random_query(request_object):
             v_re_rules = QUERY_ITEMS[RULE_HTTP_REQUEST[k]]
             random_str = xeger(v_re_rules)
             query_data[k] = random_str
-        else:
+        elif isinstance(v, list):
             query_data[k] = v[0]
     url_query = urllib.urlencode(query_data)
     if request_object.commond == 'GET':

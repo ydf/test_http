@@ -6,3 +6,4 @@
 2. python http_handle.py#采用复制的流量跑测试
 
 settings 有一些测试的方法配置
+目前不支持提交json的方法的测试。
