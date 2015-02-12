@@ -10,13 +10,16 @@ settings 有一些测试的方法配置
 
 
 ++++++++++ settings参数的配置+++++++++++++
+
 COOKIE = ''  # 可用   如果设置成空，采用录制时的cookie
 
-# 白名单， 匹配白名单里面出现的就取消对该接口的测试。
+ 白名单， 匹配白名单里面出现的就取消对该接口的测试。
+
 WHITE_LIST = [r'.*bing.com', r'.*\.(jpg|png|css|js)$'] #
 
 
-# use this rule to random gen http， 定义的产成随机的数据的正则，可以自行添加， 与RULE_HTTP_REQUEST 配合使用（随机定义过的接口的key值）
+use this rule to random gen http， 定义的产成随机的数据的正则，可以自行添加， 与RULE_HTTP_REQUEST 配合使用（随机定义过的接口的key值）
+
 QUERY_ITEMS = {
     'int_phone': r'^1\d{10}$',  # int11
     'email': r'^[a-z0-9][\w\.]+@[\w\-\.]+\.[\w]+$',
