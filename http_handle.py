@@ -24,6 +24,7 @@ if __name__ == '__main__':
     result.process_data()
     if len(result.bad_request) > 0:
         print 'there is some error by random data', result.bad_request
+        print 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX以上随机的产生的结果，可能不是预料的,我是卖夢的分割线XXXXXXXXXXXXXXXXXXX'
     if len(result.native_bad_request) > 0:
         print 'there is some error', result.native_bad_request
     if len(result.native_bad_request) == len(result.bad_request) == 0:

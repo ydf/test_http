@@ -139,5 +139,7 @@ def start_server(host='localhost', port=8000, IPv6=False, timeout=10,
 
 
 if __name__ == '__main__':
+    # 这个程序的简单思想， 浏览器第一次连接代理时，产生一个线程， 并且解析目标地址，向目标地址发送产生的数据，
+    # 以后的数据通过该线程产生的通道进行交换。
 
     start_server()

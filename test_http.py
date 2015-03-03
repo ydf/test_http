@@ -96,6 +96,7 @@ class Request(object):
     """docstring for Request"""
 
     def __init__(self, raw_data):
+
         self.raw_data = raw_data
         self.parse_http()
 
@@ -122,7 +123,9 @@ class Request(object):
             self.get_param = urlparse.parse_qs(query)
             return self.get_param
         if self.commond == "POST":
-            self.post_param = urlparse.parse_qs(self.http_body)
+            self.post_param = urlparse.parse_qs(
+                self.http_body.encode('unicode-escape'))
+            print self.post_param
             return self.post_param
 
 

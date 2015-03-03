@@ -6,7 +6,7 @@
 COOKIE = ''  # 可用
 
 # eg: www.qq.com:80,  if None , use the default 目前不用配置。
-WHITE_LIST = [r'.*bing.com', r'.*\.(jpg|png|css|js)$']
+WHITE_LIST = [r'.*bing.com', r'.*\.(jpg|png|css|js)$', r'.*logout.*']
 
 
 # use this rule to random gen http
